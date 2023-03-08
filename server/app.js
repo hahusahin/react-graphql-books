@@ -5,9 +5,7 @@ const schema = require("./schema/schema");
 
 const app = express();
 
-mongoose.connect(
-  "mongodb+srv://admin-hhs:Hs337515@cluster0.kojcq.mongodb.net/?retryWrites=true&w=majority"
-);
+mongoose.connect(process.env.MONGODB_URL);
 mongoose.connection.once("open", () => console.log("connected to DB"));
 
 app.use(
